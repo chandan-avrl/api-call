@@ -1,59 +1,59 @@
 var makeApiCallBtnElement = document.querySelector("#makeApiCallBtn");
 
 function makeApiCallFunction(requestMethod, url, inputData, headers){
-    var response = {};
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            response = xhr.responseText;
-            return response;
-        }
-    };
-    xhr.open(requestMethod, url, true);
-    xhr.setRequestHeader("Content-Type", headers["content-type"]);
-    xhr.setRequestHeader("Authorization", headers["authorization"]);
-    xhr.send(JSON.stringify(inputData));
-    // WARNING: For POST requests, body is set to null by browsers.
-    // WARNING: For POST requests, body is set to null by browsers.
-    // var data = JSON.stringify({
-    //     "equipmentTypeId": "V",
-    //     "origin": {
-    //         "cityName": "Chicago",
-    //         "stateCode": "IL",
-    //         "countryCode": "USA",
-    //         "postalCode": "60647"
-    //     },
-    //     "destination": {
-    //         "cityName": "Madison",
-    //         "stateCode": "WI",
-    //         "countryCode": "USA",
-    //         "postalCode": "53703"
-    //     },
-    //     "pickUpDateUTC": "2023-01-31",
-    //     "minTemperature": "null",
-    //     "maxTemperature": "null",
-    //     "weight": "100",
-    //     "commodity": "Sample Commodity",
-    //     "equipmentLength": "53",
-    //     "isHazmat": "false",
-    //     "isDropTrailer": "false",
-    //     "customerShipmentID": "CUST1234"
-    // });
-
+    // var response = {};
     // var xhr = new XMLHttpRequest();
-    // xhr.withCredentials = true;
-
-    // xhr.addEventListener("readystatechange", function () {
-    //     if (this.readyState === 4) {
-    //         console.log(this.responseText);
+    // xhr.onreadystatechange = function () {
+    //     if (xhr.readyState == XMLHttpRequest.DONE) {
+    //         response = xhr.responseText;
+    //         return response;
     //     }
-    // });
+    // };
+    // xhr.open(requestMethod, url, true);
+    // xhr.setRequestHeader("Content-Type", headers["content-type"]);
+    // xhr.setRequestHeader("Authorization", headers["authorization"]);
+    // xhr.send(JSON.stringify(inputData));
+    // WARNING: For POST requests, body is set to null by browsers.
+    // WARNING: For POST requests, body is set to null by browsers.
+    var data = JSON.stringify({
+        "equipmentTypeId": "V",
+        "origin": {
+            "cityName": "Chicago",
+            "stateCode": "IL",
+            "countryCode": "USA",
+            "postalCode": "60647"
+        },
+        "destination": {
+            "cityName": "Madison",
+            "stateCode": "WI",
+            "countryCode": "USA",
+            "postalCode": "53703"
+        },
+        "pickUpDateUTC": "2023-01-31",
+        "minTemperature": "null",
+        "maxTemperature": "null",
+        "weight": "100",
+        "commodity": "Sample Commodity",
+        "equipmentLength": "53",
+        "isHazmat": "false",
+        "isDropTrailer": "false",
+        "customerShipmentID": "CUST1234"
+    });
 
-    // xhr.open("POST", "https://hyper.1avrl.com/api_call_samples/json/prosponsive/westrock");
-    // xhr.setRequestHeader("Authorization", "Bearer 6drsBDoE*ngThJUk-MfAbN7cE44G7zQZf");
-    // xhr.setRequestHeader("Content-Type", "application/json");
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
 
-    // xhr.send(data);
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+        }
+    });
+
+    xhr.open("POST", "https://hyper.1avrl.com/api_call_samples/json/prosponsive/westrock");
+    xhr.setRequestHeader("Authorization", "Bearer 6drsBDoE*ngThJUk-MfAbN7cE44G7zQZf");
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.send(data);
 }
 function showDataInTextAreaFields(respData) {
     var outputArea = document.querySelector('#outputArea');
