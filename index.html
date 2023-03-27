@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVRL</title>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #requestMethodAndUrlContainer {
+            display: flex;
+            flex-direction: row;
+            padding: 10px;
+            width: 100%;
+            max-width: 50em;
+
+        }
+
+        select {
+            border: 1px solid #ccc;
+            vertical-align: top;
+            font-size: 65;
+        }
+
+        #requestMethodAndUrlContainer input,select {
+            background-color: rgb(235, 231, 231);
+            height: 35px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            vertical-align: top;
+
+        }
+
+        #requestMethodContainer {
+            width: 10%;
+        }
+
+        #urlContainer {
+            width: 90%;
+        }
+
+        #requestMethods {
+            width: 100%;
+        }
+
+        #requestURL {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header"></div>
+    <div id="container">
+        <form>
+            <div id="requestMethodAndUrlContainer">
+                <div id="requestMethodContainer">
+                    <label for="requestMethods"></label>
+                    <select name="requestMethods" id="requestMethods">
+                        <option value="post">POST</option>
+                        <option value="get">GET</option>
+                        <option value="put">PUT</option>
+                        <option value="patch">PATCH</option>
+                        <option value="delete">DELETE</option>
+                    </select>
+                </div>
+                <div id="urlContainer">
+                    <input type="url" id="requestURL" value="https://hyper.1avrl.com/api_call_samples/json/prosponsive/westrock">
+                </div>
+            </div>
+            <div id="jsonInputFields">
+                <div id="outer">
+                    <div>
+                        <label for="equipmentTypeId">equipmentTypeId</label>
+                        <input type="text" name="equipmentTypeId" id="equipmentTypeId" placeholder="V" value="V">
+
+                    </div>
+                    <div>
+                        <label for="originCityName">originCityName</label>
+                        <input type="text" name="" id="originCityName" placeholder="Chicago" value="Chicago">
+                    </div>
+                    <div>
+                        <label for="originStateCode">originStateCode</label>
+                        <input type="text" name="" id="originStateCode" placeholder="IL" value="IL">
+                    </div>
+                    <div>
+                        
+                        <label for="originCountryCode">originCountryCode</label>
+                        <input type="text" name="" id="originCountryCode" placeholder="USA" value="USA">
+                    </div>
+                    <div>
+                        
+                        <label for="originPostalCode">originPostalCode</label>
+                        <input type="text" name="" id="originPostalCode" placeholder="60647" value="60647">
+                    </div>
+                    <div>
+                        
+                        <label for="destinationCityName">destinationCityName</label>
+                        <input type="text" name="" id="destinationCityName" placeholder="Madison" value="Madison">
+                        
+                    </div>
+                    <div>
+                        <label for="destinationStateCode">destinationStateCode</label>
+                        <input type="text" name="" id="destinationStateCode" placeholder="WI" value="WI">
+                    </div>
+                    <div>
+                        <label for="destinationCountryCode">destinationCountryCode</label>
+                        <input type="text" name="destinationCountryCode" id="destinationCountryCode" placeholder="USA" value="USA">
+                    </div>
+                    <div>
+                        <label for="destinationPostalCode">destinationPostalCode</label>
+                        <input type="text" name="" id="destinationPostalCode" placeholder="53703" value="53703">
+                    </div>
+                    <div>
+                        <label for="pickUpDateUTC">pickUpDateUTC</label>
+                        <input type="datetime" name="" id="pickUpDateUTC" placeholder="2023-01-31T22:25:12.6383296Z" value="2023-01-31">
+                    </div>
+                    <div>
+                        <label for="minTemperature">minTemperature</label>
+                        <input type="text" name="minTemperature" id="minTemperature" placeholder="null" value="null">
+                    </div>
+                    <div>
+                        <label for="maxTemperature">maxTemperature</label>
+                        <input type="text" name="" id="maxTemperature" placeholder="null" value="null">
+                    </div>
+                    <div>
+                        <label for="weight">weight</label>
+                        <input type="text" name="weight" id="weight" placeholder="100" value="100">
+
+                    </div>
+                    <div>
+                        <label for="commodity">commodity</label>
+                       
+                        <input type="text" name="" id="commodity" placeholder="Sample Commodity" value="Sample Commodity">
+
+                    </div>
+                    <div>
+                        <label for="equipmentLength">equipmentLength</label>
+                        <input type="text" name="" id="equipmentLength" placeholder="53" value="53">
+                    </div>
+                    <div>
+                        
+                        <label for="isHazmat">isHazmat</label>
+                        <input type="text" name="" id="isHazmat" placeholder="false" value="false">
+                    </div>
+                    <div>
+                        <label for="isDropTrailer">isDropTrailer</label>
+                        <input type="text" name="isDropTrailer" id="isDropTrailer" placeholder="false" value="false">
+
+                    </div>
+                    <div>
+                        <label for="customerShipmentID">customerShipmentID</label>
+                        <input type="text" name="" id="customerShipmentID" placeholder="false" value="CUST1234">
+                    </div>
+                </div>
+
+                </div>
+            </div>
+            <button id="makeApiCallBtn" type="button">Make API Call</button>
+        </form>
+        <div id="showApiResponse">
+            <textarea name="outputArea" id="outputArea" cols="40" rows="26"></textarea>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+    <script id="headers" type="application/json">
+        {"content-type" : "application/JSON","authorization": "Bearer 6drsBDoE*ngThJUk-MfAbN7cE44G7zQZf"}
+    </script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>
